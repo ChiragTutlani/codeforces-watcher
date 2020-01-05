@@ -1,27 +1,17 @@
-import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import {connect} from 'react-redux'
+import { createSwitchNavigator, createAppContainer } from 'react-navigation'
+import LoginScreen from './screens/LoginScreen'
+import Homepage from './screens/Homepage'
 
-class Container extends React.Component{
-    render(){
-        return(
-            <View style={styles.container}>
-                <Text>Welcome to Codeforces Watcher</Text>
-            </View>
-        )
+const AppNavigator = createSwitchNavigator({
+    Login : {
+        screen : LoginScreen
+    },
+    Home: {
+        screen: Homepage
     }
-}
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: 'center'
-    }
+},
+{
+    initialRouteName: 'Login'
 })
 
-const mapStateToProps = state => ({
-    state: state
-})
-
-export default connect(mapStateToProps)(Container)
+export default createAppContainer(AppNavigator)

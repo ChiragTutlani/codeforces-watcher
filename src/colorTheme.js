@@ -1,0 +1,5 @@
+export const SUBMIT_BUTTON_ACTIVE = '#1976D2'
+export const SUBMIT_BUTTON_INACTIVE = '#2196F3'
+export const BUTTON_TEXT = 'white'
+export const SKIP_BUTTON = '#1976D2'
+export const BACKGROUND = '#FFFFFF'
