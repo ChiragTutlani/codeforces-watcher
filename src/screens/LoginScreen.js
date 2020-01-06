@@ -1,9 +1,10 @@
 import React from 'react'
-import { View, StyleSheet} from 'react-native'
+import { View, StyleSheet, Text} from 'react-native'
 import * as Font from 'expo-font'
 import {connect} from 'react-redux'
+import Constants from 'expo-constants'
 
-import { BACKGROUND, SUBMIT_BUTTON_INACTIVE, SUBMIT_BUTTON_ACTIVE, BUTTON_TEXT, SKIP_BUTTON } from '../colorTheme'
+import { BACKGROUND, SUBMIT_BUTTON_INACTIVE, SUBMIT_BUTTON_ACTIVE, BUTTON_TEXT, SKIP_BUTTON, ACCENT_COLOR } from '../colorTheme'
 import yourUserHandleActionCreator from '../redux/actions/yourUserHandleAction'
 import { storeUserHandleAsync } from '../AsyncStorageMethods'
 import CodeforcesTitle from '../components/CodeforcesTitle'
@@ -47,6 +48,7 @@ class LoginScreen extends React.Component{
     render(){
         return(
             <View style={styles.loginScreenView}>
+                <View style={styles.statusBarView}></View>
                 <View style={styles.loginView}>
                     <CodeforcesTitle
                         fontLoaded={this.state.fontLoaded}
@@ -79,15 +81,18 @@ class LoginScreen extends React.Component{
 
 const styles = StyleSheet.create({
     loginScreenView: {
-        flex: 1,
-        alignItems: 'center',
-        backgroundColor: BACKGROUND
+        flex: 1
+    },
+    statusBarView : {
+        height: Constants.statusBarHeight,
+        backgroundColor: ACCENT_COLOR
     },
     loginView : {
         flex: 13,
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: BACKGROUND
     },
     buttonView: {
         flex: 6,

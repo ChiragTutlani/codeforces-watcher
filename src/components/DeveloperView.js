@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import { ACCENT_COLOR } from '../colorTheme'
 
 const DeveloperView = () => {
     return (
@@ -13,6 +14,7 @@ const DeveloperView = () => {
 const styles = StyleSheet.create({
     developerView: {
         flex: 1,
+        backgroundColor: ACCENT_COLOR
     }
 })
 
