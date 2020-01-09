@@ -8,7 +8,7 @@ import ProblemSet from './ProblemSet'
 import Contest from './Contest'
 import SearchAndCompare from './SearchAndCompare'
 import Watch from './Watch'
-import You from './You'
+import Me from './Me'
 
 import {Ionicons} from '@expo/vector-icons'
 import { TAB_BUTTON_ACTIVE, ACCENT_COLOR, TAB_BUTTON_INACTIVE } from '../colorTheme'
@@ -25,11 +25,21 @@ setUserHandle()
 const HomepageTabNavigator = createBottomTabNavigator(
     {
         About: About,
-        ProblemSet: ProblemSet,
+        ProblemSet: {
+            screen: ProblemSet,
+            navigationOptions: {
+                title: 'Problems'
+            }
+        },
         Contest: Contest,
-        SearchAndCompare: SearchAndCompare,
+        SearchAndCompare: {
+            screen: SearchAndCompare,
+            navigationOptions : {
+                title : 'Search User'
+            }
+        },
         Watch: Watch,
-        You: You
+        Me: Me,
     },
     {
         initialRouteName : 'Contest',
@@ -45,7 +55,7 @@ const HomepageTabNavigator = createBottomTabNavigator(
                 if(routeName==='Contest') {iconName = 'md-list'}
                 if(routeName==='SearchAndCompare') {iconName = 'md-search'}
                 if(routeName==='Watch') {iconName = 'md-eye'}
-                if(routeName==='You') {iconName = 'md-person'}
+                if(routeName==='Me') {iconName = 'md-person'}
 
                 return (<Ionicons name={iconName} size={31} color={tintColor} />)
             }

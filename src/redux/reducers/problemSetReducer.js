@@ -9,7 +9,7 @@ const problemSetReducer = (state = {}, action) => {
         case UPDATE_PROBLEMSET:
             return {
                 status: 'ok',
-                timeUpdated: Date.now(),
+                timeUpdated: new Date(),
                 data: action.payload
             }
         case FAILED_PROBLEMSET:

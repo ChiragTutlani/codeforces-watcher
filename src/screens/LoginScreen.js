@@ -1,30 +1,41 @@
 import React from 'react'
-import { View, StyleSheet, Text} from 'react-native'
+import { View, StyleSheet} from 'react-native'
 import * as Font from 'expo-font'
 import {connect} from 'react-redux'
-import Constants from 'expo-constants'
 
 import { BACKGROUND, SUBMIT_BUTTON_INACTIVE, SUBMIT_BUTTON_ACTIVE, BUTTON_TEXT, SKIP_BUTTON, ACCENT_COLOR } from '../colorTheme'
 import yourUserHandleActionCreator from '../redux/actions/yourUserHandleAction'
-import { storeUserHandleAsync } from '../AsyncStorageMethods'
+import { storeUserHandleAsync, retrieveUserHandleAsync } from '../AsyncStorageMethods'
 import CodeforcesTitle from '../components/CodeforcesTitle'
 import TextInputView from '../components/TextInputView'
 import CustomButton from '../components/CustomButton'
 import DeveloperView from '../components/DeveloperView'
+import StatusBarView from '../components/StatusBarView'
 
 class LoginScreen extends React.Component{
     state = {
         userHandle : '',
         disabled : true,
         submitColor: SUBMIT_BUTTON_INACTIVE,
-        fontLoaded: false
+        fontLoaded: false,
     }
 
     async componentDidMount(){
-        await Font.loadAsync({
-            'verdana' : require('../../assets/fonts/Verdana.ttf')
-        })
-        this.setState({ fontLoaded: true })
+        this.mounted = true
+        const data = await retrieveUserHandleAsync()
+        if(data.status==='ok'){
+            this.navigateHome()
+        }
+        if(this.mounted){
+            await Font.loadAsync({
+                'verdana' : require('../../assets/fonts/Verdana.ttf')
+            })
+            this.setState({ fontLoaded: true })
+        }
+    }
+
+    componentWillUnmount(){
+        this.mounted = false
     }
        
     handleChange = (text) => {
@@ -48,31 +59,31 @@ class LoginScreen extends React.Component{
     render(){
         return(
             <View style={styles.loginScreenView}>
-                <View style={styles.statusBarView}></View>
-                <View style={styles.loginView}>
-                    <CodeforcesTitle
-                        fontLoaded={this.state.fontLoaded}
-                    />
-                    <TextInputView 
-                        onChangeText={(text)=>this.handleChange(text)}
-                    />
-                    <View style={styles.buttonView}>
-                        <CustomButton 
-                            disabled={this.state.disabled}
-                            onPress={()=>this.submitUserHandle()}
-                            color={this.state.submitColor}
-                            text='SUBMIT'
-                            textColor={BUTTON_TEXT}
+                <StatusBarView/>
+                    <View style={styles.loginView}>
+                        <CodeforcesTitle
+                            fontLoaded={this.state.fontLoaded}
                         />
-                        <CustomButton 
-                            disabled={false}
-                            onPress={()=>this.navigateHome()}
-                            color={SKIP_BUTTON}
-                            text='SKIP'
-                            textColor={BUTTON_TEXT}
+                        <TextInputView 
+                            onChangeText={(text)=>this.handleChange(text)}
                         />
+                        <View style={styles.buttonView}>
+                            <CustomButton 
+                                disabled={this.state.disabled}
+                                onPress={()=>this.submitUserHandle()}
+                                color={this.state.submitColor}
+                                text='SUBMIT'
+                                textColor={BUTTON_TEXT}
+                            />
+                            <CustomButton 
+                                disabled={false}
+                                onPress={()=>this.navigateHome()}
+                                color={SKIP_BUTTON}
+                                text='SKIP'
+                                textColor={BUTTON_TEXT}
+                            />
+                        </View>
                     </View>
-                </View>
                 <DeveloperView/>
             </View>
         )
@@ -82,10 +93,6 @@ class LoginScreen extends React.Component{
 const styles = StyleSheet.create({
     loginScreenView: {
         flex: 1
-    },
-    statusBarView : {
-        height: Constants.statusBarHeight,
-        backgroundColor: ACCENT_COLOR
     },
     loginView : {
         flex: 13,

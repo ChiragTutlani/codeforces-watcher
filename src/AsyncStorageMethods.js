@@ -23,3 +23,16 @@ export const retrieveUserHandleAsync = async () => {
         }
     }
 }
+
+export const removeUserHandleAsync = async () => {
+    try {
+        const data = await AsyncStorage.removeItem('userHandle')
+        return {
+            status: 'ok'
+        }
+    }catch(error){
+        return{
+            status: 'error'
+        }
+    }
+}

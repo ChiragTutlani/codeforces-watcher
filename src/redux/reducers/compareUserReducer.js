@@ -6,13 +6,13 @@ const compareUserReducer = (state = {}, action) => {
             if(state.data===undefined){
                 return {
                     status: 'ok',
-                    timeUpdated: Date.now(),
+                    timeUpdated: new Date(),
                     data: [action.payload]
                 }
             }
             return {
                 status: 'ok',
-                timeUpdated: Date.now(),
+                timeUpdated: new Date(),
                 data: [...(state.data), action.payload]
             }
 

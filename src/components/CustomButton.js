@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
         shadowRadius: 20,
     },
     text : {
+        textAlign: 'center',
         fontSize: 16,
     }
 })
