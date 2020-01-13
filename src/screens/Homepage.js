@@ -1,8 +1,6 @@
 import { createAppContainer } from 'react-navigation'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
 import React from 'react'
-import { retrieveUserHandleAsync } from '../AsyncStorageMethods'
-import yourUserHandleActionCreator from '../redux/actions/yourUserHandleAction'
 import About from './About'
 import ProblemSet from './ProblemSet'
 import Contest from './Contest'
@@ -12,15 +10,6 @@ import Me from './Me'
 
 import {Ionicons} from '@expo/vector-icons'
 import { TAB_BUTTON_ACTIVE, ACCENT_COLOR, TAB_BUTTON_INACTIVE } from '../colorTheme'
-
-const setUserHandle = async () => {
-    const data = await retrieveUserHandleAsync()
-    if(data.status==='ok'){
-        yourUserHandleActionCreator(data.userHandle)
-    }
-}
-
-setUserHandle()
 
 const HomepageTabNavigator = createBottomTabNavigator(
     {

@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 
 import { BACKGROUND, SUBMIT_BUTTON_INACTIVE, SUBMIT_BUTTON_ACTIVE, BUTTON_TEXT, SKIP_BUTTON, ACCENT_COLOR } from '../colorTheme'
 import yourUserHandleActionCreator from '../redux/actions/yourUserHandleAction'
-import { storeUserHandleAsync, retrieveUserHandleAsync } from '../AsyncStorageMethods'
+import { storeKeyAsync, retrieveKeyAsync } from '../AsyncStorageMethods'
 import CodeforcesTitle from '../components/CodeforcesTitle'
 import TextInputView from '../components/TextInputView'
 import CustomButton from '../components/CustomButton'
@@ -22,7 +22,7 @@ class LoginScreen extends React.Component{
 
     async componentDidMount(){
         this.mounted = true
-        const data = await retrieveUserHandleAsync()
+        const data = await retrieveKeyAsync('userHandle')
         if(data.status==='ok'){
             this.navigateHome()
         }
@@ -48,7 +48,7 @@ class LoginScreen extends React.Component{
 
     submitUserHandle = () => {
         this.props.dispatch(yourUserHandleActionCreator(this.state.userHandle))
-        storeUserHandleAsync(this.state.userHandle)
+        storeKeyAsync('userHandle', this.state.userHandle)
         this.navigateHome()
     }
 

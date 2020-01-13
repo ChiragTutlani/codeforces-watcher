@@ -5,9 +5,8 @@ import * as Font from 'expo-font'
 
 import LoadingView from '../components/LoadingView'
 
-import { retrieveUserHandleAsync, removeUserHandleAsync } from '../AsyncStorageMethods'
+import { retrieveKeyAsync, removeKeyAsync } from '../AsyncStorageMethods'
 import yourUserHandleActionCreator from '../redux/actions/yourUserHandleAction'
-import FailedView from '../components/FailedView'
 import StatusBarView from '../components/StatusBarView'
 import Heading from '../components/Heading'
 import UserProfile from '../components/UserProfile'
@@ -22,7 +21,7 @@ class Me extends React.Component{
     }
 
     async componentDidMount(){
-        const data = await retrieveUserHandleAsync()
+        const data = await retrieveKeyAsync('userHandle')
         if(data.status==='ok'){
             this.props.dispatch(yourUserHandleActionCreator( data.userHandle ))
         }
@@ -43,24 +42,31 @@ class Me extends React.Component{
     }
 
     addChangeAccount = async () => {
-        const data = await removeUserHandleAsync()
+        const data = await removeKeyAsync('userHandle')
         if(data.status==='ok'){
             this.props.navigation.navigate('Login') 
         }
     }
 
     removeHandle = async () => {
-        const data = await removeUserHandleAsync()
+        const data = await removeKeyAsync('userHandle')
         if(data.status==='ok'){
             this.setState({
-                userHandle: undefined
+                userHandle: undefined,
+                changeHandleText: 'Add Account'
             })
         }
     }
 
     render(){
         const userHandleState = this.props.userHandle
-        if(userHandleState.status==='ok'){
+        if(userHandleState.status==='loading'){
+            return <LoadingView fontSize={32} heading={'My Profile'}
+                verdana={this.state.fontLoaded ? 'verdana' : ''}
+                refresh={()=>this.refresh()}
+            />
+        }
+        else{
             return(
                 <View style={{flex:1}}>
                     <StatusBarView/>
@@ -87,17 +93,6 @@ class Me extends React.Component{
                     </View>
                 </View>
             )
-        }
-        else if(userHandleState.status==='loading'){
-            return <LoadingView fontSize={32} heading={'My Profile'}
-                verdana={this.state.fontLoaded ? 'verdana' : ''}
-                refresh={()=>this.refresh()}
-            />
-        }
-        else{
-            return <FailedView content={'your profile'}
-                verdana={this.state.fontLoaded ? 'verdana' : ''}
-            />
         }
     }
 }
