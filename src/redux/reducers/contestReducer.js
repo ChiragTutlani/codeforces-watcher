@@ -9,7 +9,7 @@ const contestReducer = (state = {}, action) => {
         case UPDATE_CONTEST:
             return {
                 status: 'ok',
-                timeUpdated: Date.now(),
+                timeUpdated: new Date(),
                 data: [...action.payload],
             }
         case FAILED_CONTEST: 

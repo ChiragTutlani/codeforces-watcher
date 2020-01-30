@@ -5,7 +5,7 @@ const yourUserHandleReducer = (state = {}, action) => {
         case CHANGE_YOUR_USER_HANDLE: 
             return {
                 status: 'ok',
-                timeUpdated: Date.now(),
+                timeUpdated: new Date(),
                 data: action.payload,
             }
         case LOADING_HANDLE:

@@ -1,12 +1,12 @@
 import {AsyncStorage} from 'react-native'
 
-export const storeUserHandleAsync = async (userHandle) => {
-    await AsyncStorage.setItem('userHandle',userHandle)
+export const storeKeyAsync = async (key,value) => {
+    await AsyncStorage.setItem(key,value)
 }
 
-export const retrieveUserHandleAsync = async () => {
+export const retrieveKeyAsync = async (key) => {
     try {
-        const userHandle = await AsyncStorage.getItem('userHandle')
+        const userHandle = await AsyncStorage.getItem(key)
         if(userHandle!==null){
             return {
                 status : 'ok',
@@ -20,6 +20,19 @@ export const retrieveUserHandleAsync = async () => {
         return {
             status: 'error',
             error: 'error'
+        }
+    }
+}
+
+export const removeKeyAsync = async (key) => {
+    try {
+        const data = await AsyncStorage.removeItem(key)
+        return {
+            status: 'ok'
+        }
+    }catch(error){
+        return{
+            status: 'error'
         }
     }
 }

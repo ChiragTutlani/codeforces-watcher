@@ -11,6 +11,7 @@ const TextInputView = (props) => {
                 clearButtonMode='unless-editing'
                 keyboardAppearance='dark'
                 placeholder="CODEFORCES USER HANDLE"
+                autoCapitalize={'none'}
             />
         </View>
     )

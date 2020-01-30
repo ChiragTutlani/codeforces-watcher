@@ -17,8 +17,8 @@ const CustomButton = (props) => {
 const styles = StyleSheet.create({
     touchableOpacity : {
         display: 'flex',
+        padding: 10,
         height: 50,
-        width: 100,
         borderRadius: 10,
         justifyContent: 'center',
         alignItems: 'center',
@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
         shadowRadius: 20,
     },
     text : {
+        textAlign: 'center',
         fontSize: 16,
     }
 })
