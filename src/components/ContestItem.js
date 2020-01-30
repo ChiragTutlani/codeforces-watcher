@@ -2,10 +2,16 @@ import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { LIST_ITEM_BACKGROUND, CONTEST_STATUS_BUTTON_COLOR, CONTEST_STANDINGS_BUTTON_COLOR } from '../colorTheme'
 import CustomButton from './CustomButton'
+<<<<<<< HEAD
 import PropTypes from 'prop-types'
 
 let fontVerdana = null
 const ContestItem = ({onStatus, onStandings, contestDescription, verdana}) => {
+=======
+
+let fontVerdana = null
+const ProblemItem = ({onStatus, onStandings, contestDescription, verdana}) => {
+>>>>>>> f6791fac28dd532049bf3171c6efeddc06825d51
     fontVerdana = verdana
     return(
         <View style={styles.contestItem}>
@@ -61,6 +67,7 @@ const formatTime = (seconds) => {
     return hours + ' hr ' + minutes + ' min' 
 }
 
+<<<<<<< HEAD
 ContestItem.propTypes = {
     onStatus: PropTypes.func.isRequired,
     onStandings: PropTypes.func.isRequired,
@@ -68,3 +75,6 @@ ContestItem.propTypes = {
 }
 
 export default ContestItem
+=======
+export default ProblemItem
+>>>>>>> f6791fac28dd532049bf3171c6efeddc06825d51

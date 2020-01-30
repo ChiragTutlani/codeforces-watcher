@@ -88,9 +88,13 @@ class ProblemSet extends React.Component{
             )
         }
         else{
+<<<<<<< HEAD
             return <FailedView content={'Problem Sets'} verdana={this.state.fontLoaded?'verdana':''}
                 refresh={()=>this.refresh()} heading={'Problem Sets'} fontSize={32}
             />
+=======
+            return <FailedView content={'Problem Sets'} verdana={this.state.fontLoaded?'verdana':''}/>
+>>>>>>> f6791fac28dd532049bf3171c6efeddc06825d51
         }
     }
 }

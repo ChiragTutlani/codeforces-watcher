@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 import { View, Text, StyleSheet, Image } from "react-native"
 import * as Font from 'expo-font'
@@ -109,4 +110,25 @@ const styles = StyleSheet.create({
     }
 })
 
+=======
+import React from 'react'
+import { View, Text, StyleSheet } from "react-native"
+
+const About = () => {
+    return (
+        <View style={styles.aboutView}>
+            <Text>About</Text>
+        </View>
+    )
+}
+
+const styles = StyleSheet.create({
+    aboutView : {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+})
+
+>>>>>>> f6791fac28dd532049bf3171c6efeddc06825d51
 export default About

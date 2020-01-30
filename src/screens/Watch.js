@@ -1,4 +1,5 @@
 import React from 'react'
+<<<<<<< HEAD
 import { View, StyleSheet, FlatList } from 'react-native'
 import * as Font from 'expo-font'
 
@@ -95,12 +96,22 @@ class Watch extends React.Component{
                         }
                     </View>
                 </View>
+=======
+import { View, Text, StyleSheet } from 'react-native'
+
+class Watch extends React.Component{
+    render(){
+        return(
+            <View style={style.watchView}>
+                <Text>Watch</Text>
+>>>>>>> f6791fac28dd532049bf3171c6efeddc06825d51
             </View>
         )
     }
 }
 
 const style = StyleSheet.create({
+<<<<<<< HEAD
     container : {
         flex: 15,
         alignItems: 'center',
@@ -124,3 +135,13 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps)(Watch)
+=======
+    watchView : {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent : 'center'
+    }
+})
+
+export default Watch
+>>>>>>> f6791fac28dd532049bf3171c6efeddc06825d51

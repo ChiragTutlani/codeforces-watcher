@@ -3,7 +3,7 @@ import { View, StyleSheet} from 'react-native'
 import * as Font from 'expo-font'
 import {connect} from 'react-redux'
 
-import { BACKGROUND, SUBMIT_BUTTON_INACTIVE, SUBMIT_BUTTON_ACTIVE, BUTTON_TEXT, SKIP_BUTTON } from '../colorTheme'
+import { BACKGROUND, SUBMIT_BUTTON_INACTIVE, SUBMIT_BUTTON_ACTIVE, BUTTON_TEXT, SKIP_BUTTON, ACCENT_COLOR } from '../colorTheme'
 import yourUserHandleActionCreator from '../redux/actions/yourUserHandleAction'
 import { storeKeyAsync, retrieveKeyAsync } from '../AsyncStorageMethods'
 import CodeforcesTitle from '../components/CodeforcesTitle'
@@ -18,6 +18,7 @@ class LoginScreen extends React.Component{
         disabled : true,
         submitColor: SUBMIT_BUTTON_INACTIVE,
         fontLoaded: false,
+<<<<<<< HEAD
     }
 
     
@@ -27,6 +28,8 @@ class LoginScreen extends React.Component{
             return true
         }
         return false
+=======
+>>>>>>> f6791fac28dd532049bf3171c6efeddc06825d51
     }
 
     async componentDidMount(){

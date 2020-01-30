@@ -14,7 +14,10 @@ const DeveloperView = () => {
 const styles = StyleSheet.create({
     developerView: {
         flex: 1,
+<<<<<<< HEAD
         justifyContent: 'space-evenly',
+=======
+>>>>>>> f6791fac28dd532049bf3171c6efeddc06825d51
         backgroundColor: ACCENT_COLOR
     }
 })

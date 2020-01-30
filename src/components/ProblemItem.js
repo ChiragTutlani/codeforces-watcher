@@ -10,8 +10,13 @@ const ProblemItem = ({onPress, question, verdana}) => {
                 <Text style={[styles.typeText,{fontFamily: verdana}]}>{question.type.charAt(0) + question.type.slice(1).toLowerCase()}</Text>
             </View>
             <View style={styles.nameTypeView}>
+<<<<<<< HEAD
                 {question.points!==undefined?<Text style={[styles.nameText,{fontFamily: verdana}]}>{'Points: '+question.points}</Text>:null}
                 {question.rating!==undefined?<Text style={[styles.typeText,{fontFamily: verdana}]}>{'Rating: '+question.rating}</Text>:null}
+=======
+                <Text style={[styles.nameText,{fontFamily: verdana}]}>{'Points: '+question.points}</Text>
+                <Text style={[styles.typeText,{fontFamily: verdana}]}>{'Rating: '+question.rating}</Text>
+>>>>>>> f6791fac28dd532049bf3171c6efeddc06825d51
             </View>
             <View style={styles.tagsView}>
                 <Text style={[styles.tagsView,{fontFamily:'verdana'}]}>
