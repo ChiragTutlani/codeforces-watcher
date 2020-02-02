@@ -12,6 +12,7 @@ import Heading from '../components/Heading'
 import UserProfile from '../components/UserProfile'
 import { CONTENT_BACKGROUND, ADD_CHANGE_HANDLE_BUTTON, BUTTON_TEXT, REMOVE_HANDLE_BUTTON } from '../colorTheme'
 import CustomButton from '../components/CustomButton'
+import changeInitialRouteActionCreator from '../redux/actions/changeInitialRouteAction'
 
 class Me extends React.Component{
     state = {
@@ -44,6 +45,7 @@ class Me extends React.Component{
     addChangeAccount = async () => {
         const data = await removeKeyAsync('userHandle')
         if(data.status==='ok'){
+            this.props.dispatch(changeInitialRouteActionCreator('Login'))
             this.props.navigation.navigate('Login') 
         }
     }
@@ -51,6 +53,7 @@ class Me extends React.Component{
     removeHandle = async () => {
         const data = await removeKeyAsync('userHandle')
         if(data.status==='ok'){
+            this.props.dispatch(changeInitialRouteActionCreator('Login'))
             this.setState({
                 userHandle: undefined,
                 changeHandleText: 'Add Account'

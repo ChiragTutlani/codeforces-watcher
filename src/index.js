@@ -2,6 +2,7 @@ import { createSwitchNavigator, createAppContainer } from 'react-navigation'
 import LoginScreen from './screens/LoginScreen'
 import Homepage from './screens/Homepage'
 
+import store from './redux/index'
 
 const AppNavigator = createSwitchNavigator({
     Login : {
@@ -12,7 +13,7 @@ const AppNavigator = createSwitchNavigator({
     }
 },
 {
-    initialRouteName: 'Login'
+    initialRouteName: store.getState().initialRoute
 })
 
 export default createAppContainer(AppNavigator)

@@ -1,16 +1,15 @@
 {
   "expo": {
     "name": "Codeforces Watcher",
-    "slug": "codeforces-watch",
+    "slug": "codeforces-watcher",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
-      "ios",
-      "android",
-      "web"
+      "android"
     ],
     "version": "1.0.0",
     "orientation": "portrait",
+    "primaryColor": "#2196F3",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",

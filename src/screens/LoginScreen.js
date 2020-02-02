@@ -11,6 +11,7 @@ import TextInputView from '../components/TextInputView'
 import CustomButton from '../components/CustomButton'
 import DeveloperView from '../components/DeveloperView'
 import StatusBarView from '../components/StatusBarView'
+import changeInitialRouteActionCreator from '../redux/actions/changeInitialRouteAction'
 
 class LoginScreen extends React.Component{
     state = {
@@ -18,18 +19,6 @@ class LoginScreen extends React.Component{
         disabled : true,
         submitColor: SUBMIT_BUTTON_INACTIVE,
         fontLoaded: false,
-<<<<<<< HEAD
-    }
-
-    
-    checkFirstTime = async () => {
-        const data = await retrieveKeyAsync('usedBefore')
-        if(data.status!=='ok'){
-            return true
-        }
-        return false
-=======
->>>>>>> f6791fac28dd532049bf3171c6efeddc06825d51
     }
 
     async componentDidMount(){
@@ -60,6 +49,7 @@ class LoginScreen extends React.Component{
 
     submitUserHandle = () => {
         this.props.dispatch(yourUserHandleActionCreator(this.state.userHandle))
+        this.props.dispatch(changeInitialRouteActionCreator('Home'))
         storeKeyAsync('userHandle', this.state.userHandle)
         this.navigateHome()
     }

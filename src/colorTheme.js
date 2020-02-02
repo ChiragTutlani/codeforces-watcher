@@ -31,7 +31,6 @@ export const CONTEST_STANDINGS_BUTTON_COLOR = '#FFFFFF'
 
 export const SEARCH_BUTTON_INACTIVE = '#BBDEFB'
 export const SEARCH_BUTTON_ACTIVE = '#1976D2'
-<<<<<<< HEAD
 export const SEARCH_BUTTON_REMOVE = '#D32F2F'
 
 export const GITHUB_BUTTON_COLOR = 'black'
@@ -43,6 +42,3 @@ export const PRIVACY_POLICY_BUTTON = 'white'
 export const TANDC_BUTTON = 'white'
 export const PRIVACY_POLICY_TEXT = 'black'
 export const TANDC_BUTTON_TEXT = 'black'
-=======
-export const SEARCH_BUTTON_REMOVE = '#D32F2F'
->>>>>>> f6791fac28dd532049bf3171c6efeddc06825d51

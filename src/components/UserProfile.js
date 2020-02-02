@@ -35,13 +35,8 @@ const styles = StyleSheet.create({
     profileView: {
         padding:10, 
         backgroundColor: REFRESH_BUTTON, 
-<<<<<<< HEAD
         borderRadius:5,
         flex: 1,
-=======
-        borderRadius:5, 
-        flex: 1, 
->>>>>>> f6791fac28dd532049bf3171c6efeddc06825d51
         justifyContent:'space-between'
     },
     contentTop: {

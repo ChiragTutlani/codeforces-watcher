@@ -30,3 +30,12 @@ export const ADD_COMPARE = 'ADD_COMPARE'
 export const REMOVE_COMPARE = 'REMOVE_COMPARE'
 export const LOADING_COMPARE = 'LOADING_COMPARE'
 export const FAILED_COMPARE = 'FAILED_COMPARE'
+
+// action-type for fontReducer
+export const ADD_FONT = 'ADD_FONT'
+
+// action-type for appLogoReducer
+export const ADD_APP_LOGO = 'ADD_APP_LOGO'
+
+// action-type for initialRouteReducer
+export const CHANGE_INITIAL_ROUTE = 'CHANGE_INITIAL_ROUTE'
