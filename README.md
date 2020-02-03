@@ -1,4 +1,4 @@
-[![Slack Workspace](https://img.shields.io/badge/Slack_Workspace-Join-Blue.svg)](https://codeforceswatcher-322.slack.com) [![Generic badge](https://img.shields.io/badge/Download_Latest_Version-v1.0.0-red.svg)](./Builds/codeforces-watcher-v1.0.0.apk) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE) [![GitHub issues](https://img.shields.io/github/issues/Chirag161198/codeforces-watcher.svg)](https://GitHub.com/Chirag161198/codeforces-watcher/issues/) 
+[![Slack Workspace](https://img.shields.io/badge/Slack_Workspace-Join-Blue.svg)](https://codeforceswatcher-322.slack.com) [![Generic badge](https://img.shields.io/badge/Download_Latest_Version-v1.0.0-red.svg)](https://github.com/Chirag161198/codeforces-watcher/raw/master/Builds/codeforces-watcher-v1.0.0.apk) [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE) [![GitHub issues](https://img.shields.io/github/issues/Chirag161198/codeforces-watcher.svg)](https://GitHub.com/Chirag161198/codeforces-watcher/issues/) 
 
 # Codeforces Watcher
 
