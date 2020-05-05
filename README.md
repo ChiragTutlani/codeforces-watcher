@@ -17,5 +17,5 @@ Currently it supports the following features:
     <img src="./Screenshots/Profile.jpg" height="400px">
     <img src="./Screenshots/Problem.jpg" height="400px">
     <img src="./Screenshots/Contest.jpg" height="400px">
-    <img src="./Screenshots/Profile.jpg" height="400px">
+    <img src="./Screenshots/Login.jpg" height="400px">
 </div>
