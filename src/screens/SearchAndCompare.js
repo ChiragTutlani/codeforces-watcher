@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { View, StyleSheet, ScrollView,Text } from 'react-native'
 import * as Font from 'expo-font'
 
 import { connect } from 'react-redux'
@@ -15,7 +15,7 @@ import UserProfile from '../components/UserProfile'
 import { 
     BUTTON_TEXT, CONTENT_BACKGROUND, 
     SEARCH_BUTTON_INACTIVE, SEARCH_BUTTON_ACTIVE, 
-    SEARCH_BUTTON_REMOVE 
+    SEARCH_BUTTON_REMOVE, LIST_ITEM_BACKGROUND
 } from '../colorTheme'
 
 class SearchAndCompare extends React.Component{
@@ -48,7 +48,9 @@ class SearchAndCompare extends React.Component{
     }
 
     onSearch = () => {
-        this.props.dispatch(updateSearchUserActionCreator(this.state.searchField))
+        if(this.state.searchField!==""){
+            this.props.dispatch(updateSearchUserActionCreator(this.state.searchField))
+        }
     }
 
     onRemove = () => {
@@ -56,6 +58,7 @@ class SearchAndCompare extends React.Component{
     }
 
     render(){
+        console.log(this.props.searchUser)
         return(
             <View style={{flex:1}}>
                 <StatusBarView />
@@ -64,7 +67,7 @@ class SearchAndCompare extends React.Component{
                 />
                 <View style={style.container}>
                     <View style={style.inputButton}>
-                        <TextInputView onChangeText={(userHandle)=>this.onChangeText(userHandle)} />
+                        <TextInputView style={{marginHorizontal:10}} onChangeText={(userHandle)=>this.onChangeText(userHandle)} />
                         <View style={style.buttons}>
                             <CustomButton disabled={this.state.disabled} color={this.state.searchColor}
                             onPress={()=>this.onSearch()} textColor={BUTTON_TEXT} text={'SEARCH'} />
@@ -74,9 +77,15 @@ class SearchAndCompare extends React.Component{
                     </View>
                     <View style={style.profile}>
                         {
-                            this.props.searchUser!==undefined && this.props.searchUser.status==='ok' ?
-                            (<UserProfile profileData={this.props.searchUser.data} verdana={'verdana'}
-                                marginHorizontal={15} marginVertical={10} />) : null
+                            this.props.searchUser.status==='ok' ?
+                            <UserProfile profileData={this.props.searchUser.data} verdana={'verdana'}
+                                marginHorizontal={15} marginVertical={10} /> : 
+                            this.props.searchUser.status==='failed' ? 
+                            <View style={{flex:15, backgroundColor: CONTENT_BACKGROUND, alignItems: 'center', justifyContent: 'center'}}>
+                                <Text style={{backgroundColor: LIST_ITEM_BACKGROUND, paddingHorizontal: 10, paddingVertical:10, borderRadius:10}}>
+                                    Try with different user handle
+                                </Text>
+                            </View> : null
                         }
                     </View>
                 </View>
@@ -93,11 +102,14 @@ const style = StyleSheet.create({
         backgroundColor: CONTENT_BACKGROUND
     },
     inputButton : {
-        flex:3,
+        flex:2,
+        flexDirection : 'row',
+        alignItems : 'center',
+        justifyContent : 'center'
     },
     buttons: {
         flexDirection: 'row',
-        justifyContent: 'space-evenly'
+        justifyContent: 'space-evenly',
     },
     profile : {
         flex: 12,

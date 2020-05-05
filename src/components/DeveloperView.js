@@ -5,7 +5,7 @@ import { ACCENT_COLOR } from '../colorTheme'
 const DeveloperView = () => {
     return (
         <View style={styles.developerView}>
-            <Text style={{textAlign: 'center'}}>&copy; 2019</Text>
+            <Text style={{textAlign: 'center'}}>&copy; 2020</Text>
             <Text style={{textAlign: 'center'}}>Developed by Chirag Tutlani</Text>
         </View>
     )

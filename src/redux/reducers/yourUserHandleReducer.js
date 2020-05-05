@@ -15,7 +15,7 @@ const yourUserHandleReducer = (state = {}, action) => {
         case FAILED_HANDLE: 
             return {
                 status: 'failed',
-                error : payload.error
+                error : action.payload.error
             }
         default: return state
     }
